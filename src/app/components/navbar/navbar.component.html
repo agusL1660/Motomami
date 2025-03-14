@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+    <!-- Logo -->
+    <img src="assets/logomotomami.png" alt="Logo" class="logo">
+    <span>Mi Tienda</span>
+  
+    <!-- Espaciador para centrar elementos -->
+    <span class="spacer"></span>
+  
+    <!--  Mostrar botones SOLO si NO está autenticado -->
+    <ng-container *ngIf="!isAuthenticated; else loggedIn">
+      <button mat-button (click)="login()">Acceder</button>
+      <button mat-button (click)="register()">Crear cuenta</button>
+    </ng-container>
+  
+    <!--  Usuario Autenticado -->
+    <ng-template #loggedIn>
+        <mat-icon fontSet="material-icons-round">person</mat-icon>
+      <button mat-button (click)="logout()">Cerrar sesión</button>
+    </ng-template>
+  
+    <!-- Carrito [matBadge]="cartItemCount" -->
+    <button mat-icon-button  matBadgeColor="accent" routerLink="/carrito">
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+  </mat-toolbar>
+  
