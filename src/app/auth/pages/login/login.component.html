@@ -1,25 +1,31 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<h2>Acceder</h2>
 
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div>
     <mat-form-field appearance="outline">
-        <mat-label>Correo Electronico</mat-label>
-        <input matInput formControlName="email" />
-        <mat-error *ngIf="email()?.invalid && email()?.touched">
-          Campo obligatorio
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Enter your password</mat-label>
-        <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" />
-        <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button">
-          <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
-        </button>
-        <mat-error *ngIf="password()?.invalid && password()?.touched">
-          La contraseña debe tener al menos 6 caracteres
-        </mat-error>
-      </mat-form-field>
-    
-      <!-- Botón de Enviar -->
-      <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">
-        Enviar
+      <mat-label>Correo Electronico</mat-label>
+      <input matInput formControlName="email" />
+      <mat-error *ngIf="email()?.invalid && email()?.touched">
+        Campo obligatorio
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Enter your password</mat-label>
+      <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" />
+      <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button">
+        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
       </button>
+      <mat-error *ngIf="password()?.invalid && password()?.touched">
+        La contraseña debe tener al menos 6 caracteres
+      </mat-error>
+    </mat-form-field>
+  </div>
+    
+    
+    <!-- Botón de Enviar -->
+    <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">
+      Enviar
+    </button>
 </form>

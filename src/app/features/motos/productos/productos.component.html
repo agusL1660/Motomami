@@ -1,0 +1,26 @@
+<div *ngIf="motos" else loading>
+    <ng-container *ngFor="let moto of motos">
+        <mat-card class="product-card">
+          <mat-card-header>
+            <mat-card-title>{{ moto.nombre }}</mat-card-title>
+            <mat-card-subtitle>{{ moto.marca }}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image [src]="moto.imagen" alt="Foto de {{ moto.nombre }}">
+          <mat-card-content>
+            <p>{{ moto.descripcion }}</p>
+            <p>Precio: {{ moto.precio | currency }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button color="primary" (click)="addToCart(moto)">
+              <mat-icon>add_shopping_cart</mat-icon>
+              Agregar al carrito
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      
+      </ng-container>
+</div>
+<ng-template #loading>
+    <mat-spinner></mat-spinner>
+</ng-template>
+

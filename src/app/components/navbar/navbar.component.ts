@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent implements OnInit {
+
   isAuthenticated: boolean = false;
 
   private authSubscription!: Subscription;
@@ -28,11 +29,15 @@ export class NavbarComponent implements OnInit {
   login() {
     this.router.navigate(['/login']);
   }
-
+  dashboard() {
+    this.router.navigate(['/']);
+    }
   register() {
     this.router.navigate(['/register']);
   }
-
+  motos() {
+    this.router.navigate(['/motos']);
+  }
   logout() {
     this.authService.logout();
     this.router.navigate(['/login']);

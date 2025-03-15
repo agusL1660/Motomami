@@ -5,12 +5,13 @@ import { RegisterInterface } from '../interfaces/RegisterInterface';
 import { ResponseAccess } from '../interfaces/ResposeAccess';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
+import { environment } from '../../enviroments/enviroment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'https://https://circuit-crusaders-laravel-agusl1660.vercel.app/rest/login';
+  private apiUrl = environment.apiUrl;
   private http = inject(HttpClient);
 
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(this.hasToken());
@@ -32,21 +33,25 @@ export class AuthService {
     this.isAuthenticatedSubject.next(true); 
     localStorage.setItem('token', token);
   }
+  
   getToken(): string | null {
     if (isPlatformBrowser(this.platformId)) {
       return localStorage.getItem('token');
     }
     return null;
   }
+
   hasToken(): boolean {
     if (isPlatformBrowser(this.platformId)) {
       return localStorage.getItem('token')!=null; 
     }
     return false;
   }
+
   isAuthenticated(): boolean {
     return !!this.getToken(); 
   }
+
   logout() {
     if (isPlatformBrowser(this.platformId)) {
       localStorage.removeItem('token');
