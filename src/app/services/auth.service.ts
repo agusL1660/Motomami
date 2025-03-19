@@ -5,7 +5,7 @@ import { RegisterInterface } from '../interfaces/RegisterInterface';
 import { ResponseAccess } from '../interfaces/ResposeAccess';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
-import { environment } from '../../enviroments/enviroment';
+import { environment } from '../core/enviroments/enviroment';
 
 @Injectable({
   providedIn: 'root'

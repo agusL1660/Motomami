@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { environment } from '../../enviroments/enviroment';
+import { environment } from '../core/enviroments/enviroment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { MotoInterface } from '../interfaces/MotoInterface';

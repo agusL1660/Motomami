@@ -1,1 +1,12 @@
-<p>estilos works!</p>
+<div *ngIf="estilos.length>0":else loading>
+    <ng-container *ngFor="let estilo of estilos">
+        <mat-list>
+            <mat-list-item>{{estilo.nombre}}</mat-list-item>
+            <mat-divider></mat-divider>
+        </mat-list>
+    </ng-container>
+</div>
+<ng-template #loading>
+    <mat-spinner></mat-spinner>
+</ng-template>
+<mat-divider [vertical]="true">dasdassa</mat-divider>

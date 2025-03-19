@@ -1,8 +1,8 @@
 import { inject, Injectable } from '@angular/core';
-import { environment } from '../../enviroments/enviroment';
+import { environment } from '../core/enviroments/enviroment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
-
+import { EstiloInterface } from '../interfaces/EstiloInterface';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +13,8 @@ export class EstilosService {
   
   constructor() {}
 
-  estilos(): Observable<any> {
-      return this.http.get<any>(`${this.apiUrl}/estilos`)
+  estilos(): Observable<EstiloInterface[]> {
+      return this.http.get<EstiloInterface[]>(`${this.apiUrl}/estilos`)
   }
 
 }

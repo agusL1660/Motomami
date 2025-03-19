@@ -10,7 +10,8 @@ import {MatInputModule} from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
-import {MatSpinner} from '@angular/material/progress-spinner';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [],
@@ -26,7 +27,8 @@ import {MatSpinner} from '@angular/material/progress-spinner';
     ReactiveFormsModule,
     MatMenuModule,
     MatCardModule,
-    MatSpinner
+    MatDividerModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     CommonModule,
@@ -40,7 +42,8 @@ import {MatSpinner} from '@angular/material/progress-spinner';
     ReactiveFormsModule,
     MatMenuModule,
     MatCardModule,
-    MatSpinner
+    MatDividerModule,
+    MatProgressSpinnerModule
   ]
 })
 export class SharedModule { }
