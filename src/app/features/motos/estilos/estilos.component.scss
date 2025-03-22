@@ -1,0 +1,10 @@
+.container{
+  display:flex;
+  justify-content: center;
+  position: fixed;
+  width: 300px;
+  padding-top: 20px;
+}
+.product-card {
+    max-width: 200px;
+}

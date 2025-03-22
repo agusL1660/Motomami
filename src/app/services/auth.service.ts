@@ -25,8 +25,8 @@ export class AuthService {
     );
   }
 
-  register(object: RegisterInterface): Observable<RegisterInterface> {
-    return this.http.post<RegisterInterface>(`${this.apiUrl}/register`, object);
+  register(object: RegisterInterface): Observable<ResponseAccess> {
+    return this.http.post<ResponseAccess>(`${this.apiUrl}/register`, object);
   } 
 
   private setToken(token: string): void {

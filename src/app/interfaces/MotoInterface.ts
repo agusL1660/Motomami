@@ -5,7 +5,7 @@ export interface MotoInterface {
     marca: string;
     modelo: string;
     precio: number;
-    imagen: string;
+    foto: string;
     quantity: number;
     category: string;
     status: string;

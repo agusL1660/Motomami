@@ -1,24 +1,31 @@
-import { HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { HttpHandlerFn, HttpInterceptor, HttpInterceptorFn, HttpRequest } from '@angular/common/http';
 import { AuthService } from '../../services/auth.service';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import { catchError, throwError } from 'rxjs';
 
-@Injectable()
-export class AuthInterceptor implements HttpInterceptor {
+export const AuthInterceptor: HttpInterceptorFn =(req,next) => {
+  
+  const authService = inject(AuthService);
 
-  constructor(private auth: AuthService) {}
-
-  intercept(req: HttpRequest<any>, next: HttpHandler) {
-    const token = this.auth.getToken(); // Obtener el token
-
-    // Si hay un token, clonamos la request y añadimos el header Authorization
-    if (token) {
-      const authReq = req.clone({
-        headers: req.headers.set('Authorization', `Bearer ${token}`)
-      });
-      return next.handle(authReq);
-    }
-
-    // Si no hay token, enviamos la request sin modificarla
-    return next.handle(req);
+  const token = authService.getToken();
+  // Si hay un token, clonamos la request y añadimos el header Authorization
+  if (token) {
+    const authReq = req.clone({
+      headers: req.headers.set('Authorization', `Bearer ${token}`)
+    });
+    return next(authReq);
   }
-}
+
+  // Si no hay token, enviamos la request sin modificarla
+  return next(req).pipe(
+    catchError((err)=>{
+      if(err.status==400){
+        return throwError(()=>"Error en el back");
+
+      }
+      return throwError(()=>"No se sabe el error");
+
+    })
+  );
+
+}  

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
@@ -12,11 +12,16 @@ import { ErrorInterceptor } from './core/interceptors/error.interceptor';
   imports: [RouterOutlet, NavbarComponent,FooterComponent],   
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
-  ]
+  providers: []
 })
 export class AppComponent {
   title = 'Motomami';
+
+  showLayout: boolean = true;
+  
+  constructor(private router: Router) {
+    this.router.events.subscribe(() => {
+      this.showLayout = !['/login', '/register'].includes(this.router.url);
+    });
+  }
 }

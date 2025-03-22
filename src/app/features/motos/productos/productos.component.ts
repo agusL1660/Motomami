@@ -14,11 +14,6 @@ export class ProductosComponent {
 
   motos: MotoInterface[]= [];
 
-  addToCart(_t3: any) {
-    throw new Error('Method not implemented.');
-  }
-
-
   constructor(private motoService: MotoService) {}
 
   ngOnInit() {

@@ -29,7 +29,7 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  onSubmit() {
+  login() {
     if (this.loginForm.valid) {
 
       const object: LoginInterface = {
