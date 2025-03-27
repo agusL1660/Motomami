@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../services/auth.service';
+import { AuthService } from '../../../core/services/auth.service';
 import { LoginInterface } from '../../../interfaces/LoginInterface';
 import { SharedModule } from '../../../shared/shared.module';
 

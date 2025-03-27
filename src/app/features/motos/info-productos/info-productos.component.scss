@@ -1,0 +1,27 @@
+.container-card {
+  padding: 16px;
+  
+}
+
+.cards-wrapper {
+  display: flex;
+  gap: 0;
+}
+
+.inner-card {
+  flex: 1;
+  height: 70%;
+  align-items: center;
+
+}
+
+.inner-card:first-child img{
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    transition: all 0.5s;
+    width: 500px;
+}
+
+.inner-card:last-child {
+}

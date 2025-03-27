@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { MotosService } from '../../services/motos.service';
-import { EstilosService } from '../../services/estilos.service';
+import { MotosService } from '../../core/services/motos.service';
+import { EstilosService } from '../../core/services/estilos.service';
 
 import { Observable } from 'rxjs';
 import { MotoInterface } from '../../interfaces/MotoInterface';

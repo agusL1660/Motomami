@@ -9,11 +9,12 @@
     <!-- Espaciador para centrar elementos -->
     <mat-toolbar-row>
       <button mat-button (click)="motos()">Motos</button>
-      <button mat-button [matMenuTriggerFor]="estilos">Estilos</button>
-        <mat-menu #estilos="matMenu">
-          <button mat-menu-item >Estilo 1</button>
-          <button mat-menu-item >Estilo 2</button>
-        </mat-menu>
+      <button mat-button [matMenuTriggerFor]="estilosMenu">Estilos</button>
+      <mat-menu #estilosMenu="matMenu" [xPosition]="estilos.length >= 5 ? 'before' : 'after'">
+        <button mat-menu-item *ngFor="let estilo of estilos; trackBy: trackById">
+          {{ estilo.nombre }}
+        </button>
+      </mat-menu>
       <button mat-button >Contacto</button>
       <button mat-button >Ubicación</button>
       <button mat-button >Nosotros</button>
@@ -33,9 +34,21 @@
       </ng-template>
     
       <!-- Carrito [matBadge]="cartItemCount" -->
-      <button mat-icon-button  matBadgeColor="accent" routerLink="/carrito">
+      <button mat-icon-button [matBadge]="itemsCount" [matMenuTriggerFor]="menu" matBadgeColor="accent">
         <mat-icon>shopping_cart</mat-icon>
       </button>
+      <mat-menu #menu="matMenu">
+        <div *ngFor="let item of items;trackBy: trackById" mat-menu-item>
+          {{item.modelo}} {{item.marca}} {{item.monto}}
+          <button (click)="decremento(item)">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </div>
+        <button mat-menu-item (click)="carrito()">
+          <mat-icon>credit_card</mat-icon>
+          <span>Ir al carrito</span>
+        </button>
+      </mat-menu>
     </mat-toolbar-row>
 
   </mat-toolbar>

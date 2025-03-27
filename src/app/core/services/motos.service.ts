@@ -1,20 +1,19 @@
 import { inject, Injectable } from '@angular/core';
-import { environment } from '../core/enviroments/enviroment';
+import { environment } from '../enviroments/enviroment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
-import { EstiloInterface } from '../interfaces/EstiloInterface';
+import { MotoInterface } from '../../interfaces/MotoInterface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EstilosService {
+export class MotosService {
   private apiUrl = environment.apiUrl;
   private http = inject(HttpClient);
   
   constructor() {}
 
-  estilos(): Observable<EstiloInterface[]> {
-      return this.http.get<EstiloInterface[]>(`${this.apiUrl}/estilos`)
+  motos(): Observable<MotoInterface[]> {
+      return this.http.get<MotoInterface[]>(`${this.apiUrl}/motos`)
   }
-
 }

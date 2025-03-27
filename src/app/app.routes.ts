@@ -6,4 +6,8 @@ export const routes: Routes = [
     { path: 'login', loadComponent: () => import('./auth/pages/login/login.component').then(m => m.LoginComponent) },
     { path: 'register', loadComponent: () => import('./auth/pages/register/register.component').then(m => m.RegisterComponent) },
     { path: 'motos', loadComponent: () => import('./features/motos/motos.component').then(m => m.MotosComponent), },
+    { path: 'motos/informacion/:id', loadComponent: () => import('./features/motos/info-productos/info-productos.component').then(m => m.InfoProductosComponent), },
+    { path: 'motos/estilo/:id', loadComponent: () => import('./features/motos/info-productos/info-productos.component').then(m => m.InfoProductosComponent), },
+    { path: 'carrito', loadComponent: () => import('./features/motos/info-productos/info-productos.component').then(m => m.InfoProductosComponent), },
+
 ];
