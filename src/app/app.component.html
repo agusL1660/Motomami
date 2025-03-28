@@ -1,4 +1,8 @@
-<app-navbar ></app-navbar>
-<router-outlet />
-<app-footer ></app-footer> 
- 
+<div class="page-container">
+    <app-navbar *ngIf="showLayout"></app-navbar> 
+    <div class="content">
+      <router-outlet></router-outlet> 
+    </div>
+    <app-footer *ngIf="showLayout"></app-footer> 
+  </div>
+  

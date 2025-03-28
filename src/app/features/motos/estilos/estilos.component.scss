@@ -1,10 +1,10 @@
 .container{
   display:flex;
   justify-content: center;
-  position: fixed;
+  position: sticky;
   width: 300px;
   padding-top: 20px;
 }
 .product-card {
-    max-width: 200px;
+  max-width: 200px;
 }

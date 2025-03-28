@@ -20,19 +20,12 @@ export class AuthService {
   constructor(@Inject(PLATFORM_ID) private platformId: object) {}
 
   login(object: LoginInterface): Observable<ResponseAccess> {
-    return this.http.post<ResponseAccess>(`${this.apiUrl}/login`, object).pipe(
-      tap(response => this.setToken(response.token))
-    );
+    return this.http.post<ResponseAccess>(`${this.apiUrl}/login`, object);
   }
 
   register(object: RegisterInterface): Observable<ResponseAccess> {
     return this.http.post<ResponseAccess>(`${this.apiUrl}/register`, object);
   } 
-
-  private setToken(token: string): void {
-    this.isAuthenticatedSubject.next(true); 
-    localStorage.setItem('token', token);
-  }
   
   getToken(): string | null {
     if (isPlatformBrowser(this.platformId)) {

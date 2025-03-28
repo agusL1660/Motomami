@@ -35,16 +35,27 @@
           </mat-form-field>
         </div>
         <div>
-            <mat-form-field appearance="outline" class="full-width">
-              <mat-label>Confirm your password</mat-label>
-              <input matInput [type]="hidePasswordConfirm ? 'passwordConfirm' : 'text'" formControlName="passwordConfirm" />
-              <button mat-icon-button matSuffix (click)="togglePasswordVisibilityConfirm()" type="button">
-                <mat-icon>{{ hidePasswordConfirm ? 'visibility_off' : 'visibility' }}</mat-icon>
-              </button>
-              <mat-error *ngIf="passwordConfirm()?.invalid && password()?.touched">
-                La contraseña no coincide con la ya ingresada
-              </mat-error>
-            </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Confirm your password</mat-label>
+            <input
+              matInput
+              [type]="hidePasswordConfirm ? 'password' : 'text'"
+              formControlName="passwordConfirm"
+              autocomplete="off"
+              onpaste="return false"
+              oncopy="return false"
+              oncut="return false"
+              ondragstart="return false"
+              ondrop="return false"
+            />
+            <button mat-icon-button matSuffix (click)="togglePasswordVisibilityConfirm()" type="button">
+              <mat-icon>{{ hidePasswordConfirm ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="passwordConfirm()?.invalid && password()?.touched">
+              La contraseña no coincide con la ya ingresada
+            </mat-error>
+          </mat-form-field>
+          
         </div>
           
         <!-- Botón de Enviar -->

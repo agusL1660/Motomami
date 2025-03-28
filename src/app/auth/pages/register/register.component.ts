@@ -30,7 +30,7 @@ export class RegisterComponent {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     passwordConfirm: new FormControl('', [Validators.required, Validators.minLength(6)])
-  });
+  }, { validators: passwordMatchValidator });
 
   constructor(private authService: AuthService, private router: Router) {}
 

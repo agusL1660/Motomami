@@ -40,7 +40,7 @@ export class LoginComponent {
       this.authService.login(object).subscribe({
         next: (response) => {
           localStorage.setItem('token', response.token);
-          this.router.navigate(['/dashboard']); 
+          this.router.navigate(['']); 
           this.loginForm.reset();
         },
         

@@ -1,15 +1,24 @@
+
+
+.content {
+  flex: 1; /* Hace que el contenido ocupe todo el espacio disponible */
+}
+
 .footer {
-    text-align: center;
-    background-color: #333;
-    color: white;
-    bottom: 0;
+  position:static; /* Fija el footer */
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  }
-.lastText{
+    background-color: #1976D2; /* Azul Material Design */
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.lastText {
+  position:static; /* Fija el footer */
   width: 100%;
-  text-align: center;
-  background-color: #7e7676;
+  background-color: #0D47A1; /* Azul más oscuro */
   color: white;
+  text-align: center;
+  font-size: 14px;
 }
