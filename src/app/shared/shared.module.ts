@@ -12,7 +12,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { MatBadgeModule } from '@angular/material/badge'; // 🔥 Importa MatBadgeModule
+import { MatBadgeModule } from '@angular/material/badge'; 
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [],
@@ -30,7 +31,8 @@ import { MatBadgeModule } from '@angular/material/badge'; // 🔥 Importa MatBad
     MatCardModule,
     MatDividerModule,
     MatProgressSpinnerModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatGridListModule
   ],
   exports: [
     CommonModule,
@@ -46,7 +48,8 @@ import { MatBadgeModule } from '@angular/material/badge'; // 🔥 Importa MatBad
     MatCardModule,
     MatDividerModule,
     MatProgressSpinnerModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatGridListModule
   ]
 })
 export class SharedModule { }

@@ -1,1 +1,25 @@
-<p>carrito works!</p>
+<ng-container *ngIf="items";else #noitems class="container">
+  <div *ngFor="let item of items;trackBy: trackById">
+    <mat-card appearance="outlined">
+      <mat-card-content >
+        <img class="foto" [src]="'data:image/jpeg;base64,' + item.foto" alt="Foto de {{ item.marca }}" loading="lazy">          
+
+        <span class="info">{{item.marca}} {{item.modelo}} {{item.anio}}</span>
+        <span class="monto">
+          {{item.monto}}
+        </span>
+      </mat-card-content>
+    </mat-card>
+    <br>
+  </div>
+  <mat-card appearance="outlined">
+    <mat-card-content >
+      Total: {{this.total()}}
+    </mat-card-content>
+  
+  </mat-card>
+</ng-container>
+
+<ng-template>
+  <div>No hay motos..</div>
+</ng-template>

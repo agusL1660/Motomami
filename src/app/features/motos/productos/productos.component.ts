@@ -27,7 +27,6 @@ export class ProductosComponent {
     return this.motoService.getMotos();
   }
 
-  
   trackById(index: number, item: any) {
     return item.id;
   }
