@@ -58,10 +58,12 @@ export class NavbarComponent implements OnInit {
   carrito() {
     this.router.navigate(['/carrito']);
   }
-  decremento(item: MotoInterface) {
+
+  eliminarItem(item: MotoInterface) {
     this.cartService.removeItem();
     this.cartService.removeItemToCart(item);
   }  
+
   trackById(index: number, item: any) {
     return item.id;
   }

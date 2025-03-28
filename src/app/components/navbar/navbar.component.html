@@ -38,9 +38,9 @@
         <mat-icon>shopping_cart</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <div *ngFor="let item of items;trackBy: trackById" mat-menu-item>
-          {{item.modelo}} {{item.marca}} {{item.monto}}
-          <button (click)="decremento(item)">
+        <div *ngFor="let item of items;trackBy: trackById">
+          {{ item.modelo }} {{ item.marca }} - ${{ item.monto }}
+          <button mat-icon-button (click)="eliminarItem(item)">
             <mat-icon>cancel</mat-icon>
           </button>
         </div>

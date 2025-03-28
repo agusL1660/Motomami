@@ -18,17 +18,20 @@ export class CarritoLogicaService {
   }
   
   addItemToCart(item: MotoInterface): void {
-    let num = this.items.value.indexOf(item);
-    let aux= this.items.value.slice(num);
+    let aux= this.items.value.concat(item);
     this.items.next(aux);
   }
   removeItem(): void {
-    this.cartCount.next(this.cartCount.value - 1);
+    if (this.cartCount.value > 0) {
+      this.cartCount.next(this.cartCount.value - 1);
+    }
   }
   
   removeItemToCart(item: MotoInterface): void {
-    let aux= this.items.value.concat(item);
-    this.items.next(aux);
+    
+
+    const currentItems = this.items.value.filter(i => i !== item);
+    this.items.next(currentItems);
   }
   
   getCartCount(): number {
