@@ -18,7 +18,7 @@ export class ProductoItemComponent {
   constructor(private router: Router){}
 
   mostrarInformacion(moto: MotoInterface) {
-    this.verMasInfo.emit();
+    this.verMasInfo.emit(moto);
   }
   
 }

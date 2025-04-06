@@ -16,4 +16,8 @@ export class MotosService {
   motos(): Observable<MotoInterface[]> {
       return this.http.get<MotoInterface[]>(`${this.apiUrl}/motos`)
   }
+  
+  getMotoById(id: number): Observable<MotoInterface> {
+    return this.http.get<MotoInterface>(`${this.apiUrl}/motos/id/${id}`);
+  }
 }

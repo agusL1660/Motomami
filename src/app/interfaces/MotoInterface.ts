@@ -1,5 +1,5 @@
 export interface MotoInterface {
-    id: number;
+    nro_moto: number;
     marca: string;
     modelo: string;
     anio: number;

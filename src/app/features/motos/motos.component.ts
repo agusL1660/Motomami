@@ -14,12 +14,11 @@ import { Router } from '@angular/router';
   styleUrl: './motos.component.scss'
 })
 export class MotosComponent {
-  masInformacion = false; 
   motoSeleccionada!: MotoInterface; 
 
   constructor(private router: Router) {}
 
   verMasInformacion(moto: MotoInterface) {
-    this.router.navigateByUrl(`/motos/informacion/${moto.id}`,{ state: { moto } });
+    this.router.navigate(['/motos/informacion', moto.nro_moto]);
   }
 }

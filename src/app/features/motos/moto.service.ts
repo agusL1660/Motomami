@@ -19,4 +19,7 @@ export class MotoService {
   public getEstilos(): Observable<EstiloInterface[]> {
     return this.estiloService.estilos();
   }
+  public getMotoById(id: number): Observable<MotoInterface> {
+    return this.motoService.getMotoById(id);
+  }
 }
