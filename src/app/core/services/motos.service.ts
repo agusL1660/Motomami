@@ -20,4 +20,9 @@ export class MotosService {
   getMotoById(id: number): Observable<MotoInterface> {
     return this.http.get<MotoInterface>(`${this.apiUrl}/motos/id/${id}`);
   }
+  
+  getMotosPorEstilos(id: number): Observable<MotoInterface[]> {
+    return this.http.get<MotoInterface[]>(`${this.apiUrl}/motos/estilos/${id}`);
+  }
+
 }

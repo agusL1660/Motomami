@@ -5,6 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { ReturnStatement } from '@angular/compiler';
 
 export const ErrorInterceptor: HttpInterceptorFn =(req,next) => {
+  //req es la peticion, y next da lugar al siguiente interceptor
   return next(req).pipe(catchError((error: HttpErrorResponse) => {
     let mensajeError = 'Ocurrió un error inesperado';
     if (error.status === 0) {

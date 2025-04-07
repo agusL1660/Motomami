@@ -45,7 +45,6 @@ export class RegisterComponent {
 
       this.authService.register(object).subscribe({
         next: (response) => {
-          localStorage.setItem('token', response.token);
           this.router.navigate(['/login']); 
           this.registerForm.reset();
         },
@@ -83,6 +82,9 @@ export class RegisterComponent {
   
   confirmPassword():boolean {
     return this.registerForm.get('password')== this.registerForm.get('passwordConfirm');
+  }
+  regresar() {
+    this.router.navigateByUrl("/");
   }
 }
 

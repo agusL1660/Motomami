@@ -58,9 +58,11 @@
           
         </div>
           
-        <!-- Botón de Enviar -->
         <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid">
             Enviar
+        </button>
+        <button mat-raised-button  color="warn" type="button" (click)="regresar() ">
+          Volver
         </button>
       </form>
   </div>

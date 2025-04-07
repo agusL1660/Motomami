@@ -6,6 +6,7 @@ import { ResponseAccess } from '../../interfaces/ResposeAccess';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
 import { environment } from '../enviroments/enviroment';
+import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,43 +14,38 @@ import { environment } from '../enviroments/enviroment';
 export class AuthService {
   private apiUrl = environment.apiUrl;
   private http = inject(HttpClient);
-
-  private isAuthenticatedSubject = new BehaviorSubject<boolean>(this.hasToken());
+  private tokenService = inject(TokenService);
+  private isAuthenticatedSubject = new BehaviorSubject<boolean>(this.tokenService.hasToken());
   isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
 
-  constructor(@Inject(PLATFORM_ID) private platformId: object) {}
+  constructor() {}
 
   login(object: LoginInterface): Observable<ResponseAccess> {
-    return this.http.post<ResponseAccess>(`${this.apiUrl}/login`, object);
+    return this.http.post<ResponseAccess>(`${this.apiUrl}/login`, object).pipe(
+      //pipe: encadenar operadores RxJS que transforman, filtran o interactúan con los datos del observable
+      //tap: no modifica el valor que pasa por el Observable, pero te deja ejecutar lógica adicional.
+      tap(response => {
+        this.tokenService.saveToken(response.token);
+        this.isAuthenticatedSubject.next(true);
+      })
+    );
   }
 
   register(object: RegisterInterface): Observable<ResponseAccess> {
     return this.http.post<ResponseAccess>(`${this.apiUrl}/register`, object);
+    //Se toma como convencion que el registro no genera token y te lleva al login para iniciar sesion
   } 
   
-  getToken(): string | null {
-    if (isPlatformBrowser(this.platformId)) {
-      return localStorage.getItem('token');
-    }
-    return null;
-  }
-
-  hasToken(): boolean {
-    if (isPlatformBrowser(this.platformId)) {
-      return localStorage.getItem('token')!=null; 
-    }
-    return false;
-  }
-
   isAuthenticated(): boolean {
-    return !!this.getToken(); 
+    return this.tokenService.hasToken();
   }
 
-  logout() {
-    if (isPlatformBrowser(this.platformId)) {
-      localStorage.removeItem('token');
-    }
-    this.isAuthenticatedSubject.next(false);
+  getToken(): string | null {
+    return this.tokenService.getToken();
+  }
 
+  logout(): void {
+    this.tokenService.clearToken();
+    this.isAuthenticatedSubject.next(false);
   }
 }

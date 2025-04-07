@@ -1,10 +1,10 @@
 <div class="login-container">
-  <p class="login-title">Acceder</p>
 
   <div class="login-card">
 
     <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form">
       <div>
+        <mat-card-title>Iniciar Sesion</mat-card-title>
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Correo Electronico</mat-label>
           <input matInput formControlName="email" />
@@ -27,6 +27,9 @@
       </div>
       <button mat-raised-button color="primary" type="submit">
           Enviar
+      </button>
+      <button mat-raised-button  color="warn" type="button" (click)="regresar() ">
+        Volver
       </button>
     </form>
 

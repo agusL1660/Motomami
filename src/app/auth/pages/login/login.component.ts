@@ -14,6 +14,7 @@ import { SharedModule } from '../../../shared/shared.module';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+
   hide = signal(true);
   hidePassword: boolean = true;
 
@@ -39,7 +40,7 @@ export class LoginComponent {
 
       this.authService.login(object).subscribe({
         next: (response) => {
-          localStorage.setItem('token', response.token);
+          //localStorage.setItem('token', response.token); esto se coloco directamente en el service del auto usando el token
           this.router.navigate(['']); 
           this.loginForm.reset();
         },
@@ -62,5 +63,8 @@ export class LoginComponent {
 
   password(){
     return this.loginForm.get('password');
+  }
+  regresar() {
+    this.router.navigateByUrl("/");
   }
 }
