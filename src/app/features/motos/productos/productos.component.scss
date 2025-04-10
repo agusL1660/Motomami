@@ -5,12 +5,12 @@
   padding: 20px;
 }
 
-.product-card {
-  width: 100%; /* Ocupa todo el ancho de su celda en el grid */
+.filtros{
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+  flex-wrap: wrap;
 }
-.product-card img{
-	height: 300px;
-	object-fit: cover;
-	border-radius: 10px 10px 0 0;
-	transition: all 0.5s;
+.filtro-marca{
+  padding-right: 20px;
 }

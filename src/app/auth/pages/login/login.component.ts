@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../core/services/auth.service';
+import { AuthService } from '../../../core/services/api/auth.service';
 import { LoginInterface } from '../../../interfaces/LoginInterface';
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -40,7 +40,8 @@ export class LoginComponent {
 
       this.authService.login(object).subscribe({
         next: (response) => {
-          //localStorage.setItem('token', response.token); esto se coloco directamente en el service del auto usando el token
+          this.authService.autenticar();
+          sessionStorage.setItem('token', response.access_token);// esto se coloco directamente en el service del auto usando el token
           this.router.navigate(['']); 
           this.loginForm.reset();
         },

@@ -10,7 +10,7 @@
     <mat-toolbar-row>
       <button mat-button (click)="motos()">Motos</button>
       <button mat-button [matMenuTriggerFor]="estilosMenu">Estilos</button>
-      <mat-menu #estilosMenu="matMenu" [xPosition]="estilos.length >= 5 ? 'before' : 'after'">
+      <mat-menu #estilosMenu="matMenu">
         <button mat-menu-item *ngFor="let estilo of estilos; trackBy: trackById">
           {{ estilo.nombre }}
         </button>
@@ -29,11 +29,10 @@
     
       <!--  Usuario Autenticado -->
       <ng-template #loggedIn>
-          <mat-icon fontSet="material-icons-round">person</mat-icon>
+        <mat-icon>person</mat-icon>
         <button mat-button (click)="logout()">Cerrar sesión</button>
       </ng-template>
     
-      <!-- Carrito [matBadge]="cartItemCount" -->
       <button mat-icon-button [matBadge]="itemsCount" [matMenuTriggerFor]="menu" matBadgeColor="accent">
         <mat-icon>shopping_cart</mat-icon>
       </button>
@@ -47,6 +46,10 @@
         <button mat-menu-item (click)="carrito()">
           <mat-icon>credit_card</mat-icon>
           <span>Ir al carrito</span>
+        </button>
+        <button mat-menu-item (click)="pedidos()">
+          <mat-icon>shopping_basket</mat-icon>
+          <span>Mis pedidos</span>
         </button>
       </mat-menu>
     </mat-toolbar-row>

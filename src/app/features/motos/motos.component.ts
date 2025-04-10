@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductosComponent } from "./productos/productos.component";
 import { EstilosComponent } from './estilos/estilos.component';
-import { InfoProductosComponent } from "./info-productos/info-productos.component";
+import { InformacionMotoService } from '../../core/services/informacion-moto.service';
 import { MotoInterface } from '../../interfaces/MotoInterface';
 import { SharedModule } from '../../shared/shared.module';
 import { Router } from '@angular/router';
@@ -16,9 +16,10 @@ import { Router } from '@angular/router';
 export class MotosComponent {
   motoSeleccionada!: MotoInterface; 
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,private motoInformacion: InformacionMotoService) {}
 
   verMasInformacion(moto: MotoInterface) {
+    this.motoInformacion.seleccionarMoto(moto);
     this.router.navigate(['/motos/informacion', moto.nro_moto]);
   }
 }

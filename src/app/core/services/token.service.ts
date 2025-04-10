@@ -1,6 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Inject, inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +11,11 @@ export class TokenService {
   constructor(@Inject(PLATFORM_ID) private platformId: object) {}
 
   getToken(): string | null {
-      if (isPlatformBrowser(this.platformId)) {
-        return localStorage.getItem('token');
-      }
-      return null;
+    if (isPlatformBrowser(this.platformId)) {
+      return localStorage.getItem('token');
     }
+    return null;
+  }
   
   hasToken(): boolean {
     return this.getToken()!= null;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/internal/Subscription';
-import { AuthService } from '../../core/services/auth.service';
+import { AuthService } from '../../core/services/api/auth.service';
 import { Router } from '@angular/router';
 import { SharedModule } from '../../shared/shared.module';
 import { CommonModule } from '@angular/common';
@@ -8,6 +8,7 @@ import { NavbarService } from './navbar.service';
 import { EstiloInterface } from '../../interfaces/EstiloInterface';
 import { CarritoLogicaService } from '../../core/services/carrito-logica.service';
 import { MotoInterface } from '../../interfaces/MotoInterface';
+import { LoginInterface } from '../../interfaces/LoginInterface';
 
 @Component({
   selector: 'app-navbar',
@@ -37,6 +38,7 @@ export class NavbarComponent implements OnInit {
     this.navbar.getItems().subscribe(items => {
       this.items = items;
     });
+    
   }
 
   login() {
@@ -57,6 +59,9 @@ export class NavbarComponent implements OnInit {
   }
   carrito() {
     this.router.navigate(['/carrito']);
+  }
+  pedidos() {
+    this.router.navigate(['/pedidos']);
   }
 
   eliminarItem(item: MotoInterface) {

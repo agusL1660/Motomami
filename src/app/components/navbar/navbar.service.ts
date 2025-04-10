@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { EstilosService } from '../../core/services/estilos.service';
+import { EstilosService } from '../../core/services/api/estilos.service';
 
 import { Observable } from 'rxjs';
 import { EstiloInterface } from '../../interfaces/EstiloInterface';
