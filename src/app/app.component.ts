@@ -17,7 +17,7 @@ import { SharedModule } from './shared/shared.module';
   styleUrl: './app.component.scss',
   providers: []
 })
-export class AppComponent {
+export class AppComponent{
   title = 'Motomami';
 
   showLayout: boolean = true;
@@ -30,4 +30,5 @@ export class AppComponent {
       this.showLayout = !(rutaActual.includes('/login') || rutaActual.includes('/register'));
     });
   }
+  
 }

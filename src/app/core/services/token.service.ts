@@ -12,7 +12,7 @@ export class TokenService {
 
   getToken(): string | null {
     if (isPlatformBrowser(this.platformId)) {
-      return localStorage.getItem('token');
+      return sessionStorage.getItem('token');
     }
     return null;
   }
@@ -23,13 +23,13 @@ export class TokenService {
 
   saveToken(token: string): void {
     if (isPlatformBrowser(this.platformId)) {
-      localStorage.setItem(this.token, token);
+      sessionStorage.setItem(this.token, token);
     }
   }
   
   clearToken(): void {
     if (isPlatformBrowser(this.platformId)) {
-      localStorage.removeItem(this.token);
+      sessionStorage.removeItem(this.token);
     }
   }
 

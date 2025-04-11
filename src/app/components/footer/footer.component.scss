@@ -1,17 +1,13 @@
 
-
-.content {
-  flex: 1; /* Hace que el contenido ocupe todo el espacio disponible */
-}
-
 .footer {
   position:static; /* Fija el footer */
-    width: 100%;
-    background-color: #1976D2; /* Azul Material Design */
-    color: white;
-    text-align: center;
-    display: flex;
-    justify-content: space-around;
+  min-height: 20vh;
+  width: 100%;
+  background-color: #1976D2; /* Azul Material Design */
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
 }
 
 .lastText {

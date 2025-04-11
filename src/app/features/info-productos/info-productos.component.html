@@ -5,7 +5,7 @@
         <mat-card-title>{{ moto.marca }}</mat-card-title>
         <mat-card-subtitle>{{ moto.modelo }}</mat-card-subtitle>
         </mat-card-header>
-        <img *ngIf="moto.foto" mat-card-image [src]="'data:image/jpeg;base64,' + moto.foto" alt="Foto de {{ moto.marca }}" loading="lazy">
+        <img *ngIf="moto.foto" mat-card-image [style.view-transition-name]="'motos-slide transition-image-'+moto.nro_moto" [src]="'data:image/jpeg;base64,' + moto.foto" [src]="'data:image/jpeg;base64,' + moto.foto" alt="Foto de {{ moto.marca }}" loading="lazy">
     </mat-card>
 
     <mat-card class="inner-card" *ngIf="moto">
