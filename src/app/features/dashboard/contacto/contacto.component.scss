@@ -1,0 +1,48 @@
+.consulta-section {
+  padding: 3rem 2rem;
+  display: flex;
+  justify-content: center;
+
+  .consulta-card {
+    color: white;
+    max-width: 600px;
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 8px;
+
+    mat-card-title {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .formulario {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+        color: white;
+      }
+
+      .full-width {
+        width: 100%;
+      }
+
+      input, textarea {
+        color: white;
+      }
+
+      ::ng-deep .mat-form-field-label {
+        color: #ddd !important;
+      }
+
+      ::ng-deep .mat-input-element {
+        caret-color: white;
+      }
+
+      ::ng-deep .mat-form-field-underline {
+        background-color: white;
+      }
+    }
+  }
+}

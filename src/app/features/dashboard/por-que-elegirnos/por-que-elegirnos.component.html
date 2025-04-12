@@ -1,0 +1,12 @@
+<div class="por-que-elegirnos">
+    <h2 class="titulo">¿Por qué elegirnos?</h2>
+  
+    <div class="razones-grid">
+      <mat-card *ngFor="let razon of razones" class="razon">
+        <mat-icon class="icono" color="primary">{{ razon.icono }}</mat-icon>
+        <h3>{{ razon.titulo }}</h3>
+        <p>{{ razon.descripcion }}</p>
+      </mat-card>
+    </div>
+  </div>
+  

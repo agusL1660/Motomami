@@ -1,25 +1,34 @@
-<ng-container *ngIf="items";else #noitems class="container">
-  <div *ngFor="let item of items;trackBy: trackById">
-    <mat-card appearance="outlined">
-      <mat-card-content >
-        <img class="foto" [src]="'data:image/jpeg;base64,' + item.foto" alt="Foto de {{ item.marca }}" loading="lazy">          
+<ng-container *ngIf="items; else noitems">
+  <mat-card color="primary" class="carrito-card" >
+    <mat-card-header>
+      <mat-card-title>Tu carrito</mat-card-title>
+    </mat-card-header>
 
-        <span class="info">{{item.marca}} {{item.modelo}} {{item.anio}}</span>
-        <span class="monto">
-          {{item.monto}}
-        </span>
-      </mat-card-content>
-    </mat-card>
-    <br>
-  </div>
-  <mat-card appearance="outlined">
-    <mat-card-content >
-      Total: {{this.total()}}
+    <mat-card-content  class="lista-pedidos-scroll">
+      <div *ngFor="let item of items | keyvalue" class="item">
+        <img class="foto" [src]="'data:image/jpeg;base64,' + item.key.foto" alt="Foto de {{ item.key.marca }}" loading="lazy" />
+
+        <div class="info-texto">
+          <span class="info">{{ item.key.marca }} {{ item.key.modelo }} {{ item.key.anio }} </span>
+          <strong >Cantidad: {{ item.value }}</strong>
+          <span class="monto">${{ item.key.monto }}</span>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      
     </mat-card-content>
-  
+    <div class="total">
+      <strong>Total:</strong> {{ total() | currency:'USD' }}
+    </div>
   </mat-card>
 </ng-container>
 
-<ng-template>
-  <div>No hay motos..</div>
+<ng-template #noitems>
+  <mat-card class="carrito-card">
+    <mat-card-content>
+      <p>No hay motos en tu carrito.</p>
+    </mat-card-content>
+  </mat-card>
 </ng-template>

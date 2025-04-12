@@ -1,20 +1,31 @@
-<ng-container *ngIf="pedidos";else #nopedidos class="container">
-    <div *ngFor="let pedido of pedidos;trackBy: trackById">
-      <mat-card appearance="outlined">
-        <mat-card-content >  
-          <span class="info">{{pedido.moto.marca}} {{pedido.moto.modelo}} {{pedido.moto.anio}}</span>
-          <span class="monto">
-            {{pedido.moto.monto | currency: 'USD'}}
-          </span>
-          <span >
-            {{pedido.fecha_pedido | date}}
-          </span>
-        </mat-card-content>
-      </mat-card>
-      <br>
-    </div>
-  </ng-container>
-  
-  <ng-template>
-    <div>No hay motos..</div>
-  </ng-template>
+<ng-container *ngIf="pedidos; else nopedidos">
+  <mat-card class="pedidos-card">
+    <mat-card-header>
+      <mat-card-title>Historial de pedidos</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content class="lista-pedidos-scroll">
+      <div *ngFor="let pedido of pedidos; trackBy: trackById" class="pedido">
+        <div class="pedido-info">
+          <div class="titulo">
+            {{ pedido.moto.marca }} {{ pedido.moto.modelo }} ({{ pedido.moto.anio }})
+          </div>
+          <div class="precio">
+            {{ pedido.moto.monto | currency:'USD' }}
+          </div>
+        </div>
+        <div class="fecha">
+          {{ pedido.fecha_pedido | date:'dd/MM/yyyy' }}
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</ng-container>
+
+<ng-template #nopedidos>
+  <mat-card class="pedidos-card">
+    <mat-card-content>
+      <p>No hay pedidos registrados aún.</p>
+    </mat-card-content>
+  </mat-card>
+</ng-template>

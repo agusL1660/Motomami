@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
   private authSubscription!: Subscription;
   estilos: EstiloInterface[]=[];
   public itemsCount=0;
-  items: MotoInterface[]=[];
+  items: Map<MotoInterface, number>=new Map;
 
   constructor(private authService: AuthService,private router: Router,private navbar: NavbarService,private cartService: CarritoLogicaService) {}
 

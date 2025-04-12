@@ -35,13 +35,17 @@
       <button mat-icon-button [matBadge]="itemsCount" [matMenuTriggerFor]="menu" matBadgeColor="accent">
         <mat-icon>shopping_cart</mat-icon>
       </button>
-      <mat-menu #menu="matMenu">
-        <div *ngFor="let item of items;trackBy: trackById">
-          {{ item.modelo }} {{ item.marca }} - ${{ item.monto }}
-          <button mat-icon-button (click)="eliminarItem(item)">
-            <mat-icon>cancel</mat-icon>
+      <mat-menu #menu="matMenu" >
+        <div class="mini-cart-menu">
+        <div *ngFor="let entry of items | keyvalue" class="mini-cart-item">
+          <span class="item-info">
+            {{ entry.key.modelo }} — Cant: {{ entry.value }}
+          </span>
+          <button mat-icon-button (click)="eliminarItem(entry.key)">
+            <mat-icon color="warn">cancel</mat-icon>
           </button>
         </div>
+        
         <button mat-menu-item (click)="carrito()">
           <mat-icon>credit_card</mat-icon>
           <span>Ir al carrito</span>
@@ -50,6 +54,7 @@
           <mat-icon>shopping_basket</mat-icon>
           <span>Mis pedidos</span>
         </button>
+        </div>
       </mat-menu>
     </mat-toolbar-row>
 

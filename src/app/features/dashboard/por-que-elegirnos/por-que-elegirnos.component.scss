@@ -1,0 +1,49 @@
+.por-que-elegirnos {
+  padding: 3rem 2rem;
+  text-align: center;
+
+  .titulo {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .razones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+  }
+
+  .razon {
+    padding: 1.5rem;
+    max-width: 300px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .icono {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h3 {
+      margin: 0.5rem 0;
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: #666;
+    }
+  }
+  mat-icon {
+    font-size: unset;
+    height: auto;
+    width: auto;
+  }
+  
+}

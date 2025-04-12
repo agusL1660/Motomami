@@ -33,7 +33,6 @@ export class InfoProductosComponent {
   }
 
   aumento(item: MotoInterface) {
-    this.motoSeleccionadaService.limpiarMoto();
     this.cartService.addToCart();
     this.cartService.addItemToCart(item);
   }

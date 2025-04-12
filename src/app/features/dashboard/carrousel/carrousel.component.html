@@ -1,1 +1,17 @@
-<p>carrousel works!</p>
+<div class="carrusel-container" color="primary">
+    <button mat-icon-button (click)="anterior()">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+  
+    <mat-card class="carrusel-card">
+      <img mat-card-image [src]="frases[index].imagen" alt="Moto carrusel">
+      <mat-card-title>
+        <h2 class="frase">{{ frases[index].texto }}</h2>
+      </mat-card-title>
+    </mat-card>
+  
+    <button mat-icon-button (click)="siguiente()">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+  

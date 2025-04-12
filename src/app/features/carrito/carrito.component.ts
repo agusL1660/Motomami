@@ -11,7 +11,7 @@ import { CarritoService } from './carrito.service';
   styleUrl: './carrito.component.scss'
 })
 export class CarritoComponent {
-  items: MotoInterface[]=[];
+  items: Map<MotoInterface,number>=new Map();
 
   constructor(private carrito: CarritoService){}
 
@@ -26,14 +26,10 @@ export class CarritoComponent {
   total(): number{
     let total=0;
 
-    if(this.items){
-
-      this.items.forEach(item => {
-        total += Number(item.monto); 
+    if (this.items instanceof Map) {
+      this.items.forEach((cantidad, moto) => {
+        total += Number(moto.monto) * cantidad;
       });
-    }
-    else{
-      total=0
     }
     
     return total

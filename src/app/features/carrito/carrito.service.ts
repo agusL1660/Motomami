@@ -16,7 +16,7 @@ export class CarritoService {
     return this.cartService.cartCount$;
   }
 
-  public getItems():Observable<MotoInterface[]>{
+  public getItems():Observable<Map<MotoInterface,number>>{
     return this.cartService.items$;
   }
 
